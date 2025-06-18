@@ -19,7 +19,7 @@ A machine learning project that predicts stock closing prices using an LSTM (Lon
 ---
 📂 Project Structure
 
-lstm-stock-price-predictor/
+# lstm-stock-price-predictor/
 │
 ├── model_training/
 │   ├── train_model.py         # Preprocess data, build & train LSTM, save model
