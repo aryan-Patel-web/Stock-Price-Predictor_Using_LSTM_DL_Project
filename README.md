@@ -19,23 +19,23 @@ A machine learning project that predicts stock closing prices using an LSTM (Lon
 ---
 📂 Project Structure
 
-# lstm-stock-price-predictor/
+# lstm-stock-price-predictor-
+
 │
 ├── model_training/
-│   ├── train_model.py         # Preprocess data, build & train LSTM, save model
-│   ├── saved_lstm_model.h5    # Trained LSTM model file
-│   ├── scaler.pkl             # Saved MinMaxScaler for inverse transform
-│   └── predictions.csv        # Actual vs predicted closing prices
+│   ├── train_model.py           # Preprocess data, build & train LSTM, save model
+│   ├── saved_lstm_model.h5      # Trained LSTM model file
+│   ├── scaler.pkl               # Saved MinMaxScaler for inverse transform
+│   └── predictions.csv          # Actual vs predicted closing prices
 │
 ├── web_app/
-│   ├── app.py                 # Flask backend to load model and serve web UI
+│   ├── app.py                   # Flask backend to load model and serve web UI
 │   ├── templates/
-│     └── index.html         # HTML + Chart.js frontend
-│   
-│                 
+│   │   └── index.html           # HTML + Chart.js frontend
 │
-├── README.md                  # Full project documentation
-└── requirements.txt           # All Python package dependencies
+├── README.md                    # Full project documentation
+└── requirements.txt             # All Python package dependencies
+
 
 
 Install Dependencies
