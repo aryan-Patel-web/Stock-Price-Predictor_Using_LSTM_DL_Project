@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Price Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+        }
+        canvas {
+            background: #fff;
+            margin-top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        form {
+            margin: 30px auto;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 8px 15px;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📊 Stock Price Prediction Dashboard</h1>
+
+    <form method="POST">
+        <label>Enter Today's Close Price:</label>
+        <input type="text" name="close_price" required>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if predicted_price %}
+        <h2>📈 Predicted Price: ₹{{ predicted_price }}</h2>
+    {% endif %}
+
+    <div>
+        <canvas id="chart" width="800" height="400"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('chart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ dates|tojson }},
+                datasets: [
+                    {
+                        label: 'Actual Price',
+                        data: {{ actual|tojson }},
+                        borderColor: 'blue',
+                        fill: false
+                    },
+                    {
+                        label: 'Predicted Price',
+                        data: {{ predicted|tojson }},
+                        borderColor: 'red',
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: { title: { display: true, text: 'Day Index' }},
+                    y: { title: { display: true, text: 'Price (INR)' }}
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
