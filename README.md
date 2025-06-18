@@ -17,36 +17,37 @@ A machine learning project that predicts stock closing prices using an LSTM (Lon
 - HDF5 (`.h5`) for Model Storage
 
 ---
-
-## 📂 Project Structure
+📂 Project Structure
 
 lstm-stock-price-predictor/
 │
 ├── model_training/
-│ ├── train_model.py # Preprocess data, build & train LSTM, save model
-│ ├── saved_lstm_model.h5 # Trained model
-│ ├── scaler.pkl # Saved MinMaxScaler object
-│ └── predictions.csv # Actual vs predicted prices for visualization
+│   ├── train_model.py         # Preprocess data, build & train LSTM, save model
+│   ├── saved_lstm_model.h5    # Trained LSTM model file
+│   ├── scaler.pkl             # Saved MinMaxScaler for inverse transform
+│   └── predictions.csv        # Actual vs predicted closing prices
 │
 ├── web_app/
-│ ├── app.py # Flask backend
-│ ├── templates/
-│ │ └── index.html # Frontend UI with Chart.js
-│ └── static/
-│ └── style.css # Optional styling
+│   ├── app.py                 # Flask backend to load model and serve web UI
+│   ├── templates/
+│     └── index.html         # HTML + Chart.js frontend
+│   
+│                 
 │
-├── README.md
-└── requirements.txt
+├── README.md                  # Full project documentation
+└── requirements.txt           # All Python package dependencies
 
-####  Install Dependencies
+
+Install Dependencies
+List these in your requirements.txt:
+
 tensorflow
-keras 
-pandas 
-numpy 
-matplotlib 
+keras
+pandas
+numpy
+matplotlib
 scikit-learn
-flask 
-
+flask
 
 
 
@@ -75,19 +76,4 @@ Model Output: 210.03 (predicted next close)
 Last known 59 prices: [250.1, 252.6, ..., 260.0]
 User input Close: 260.0
 Model Output: 215.2 ❌ (Incorrect due to scaling error or model drift)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
